@@ -41,7 +41,7 @@ class MiNav extends HTMLElement {
       if (roles.has(
         "Administrador")) {
         html +=
-          `<li>s
+          `<li>
             <a href=
 "pasatiempos.html">Cursos</a>
           </li>
