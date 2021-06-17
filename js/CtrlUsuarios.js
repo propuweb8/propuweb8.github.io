@@ -106,7 +106,7 @@ async function
         `${cod(data.nombre)}`);
     }
   }
-  return "-- Sin Pasatiempo --";
+  return "-- Sin Curso Registrado --";
 }
 
 async function buscaRoles(ids) {
