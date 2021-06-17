@@ -58,7 +58,7 @@ function htmlFila(doc) {
   return ( 
     `<li>
       <a class="fila" href=
-  "pasatiempo.html?${parámetros}">
+  "curso.html?${parámetros}">
         <strong class="primario">
           ${nombre}
         </strong>
