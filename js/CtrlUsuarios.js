@@ -18,8 +18,8 @@ const lista = document.
 const firestore = getFirestore();
 const daoRol = firestore.
   collection("Rol");
-const daoPasatiempo = firestore.
-  collection("Pasatiempo");
+const daoCurso = firestore.
+  collection("Curso");
 const daoUsuario = firestore.
   collection("Usuario");
 
@@ -48,7 +48,7 @@ async function htmlLista(snap) {
       await Promise.all(usuarios);
     html += htmlFilas.join("");
   } else {
-    html += /* html */
+    html +=
       `<li class="vacio">
         -- No hay usuarios
         registrados. --
@@ -61,9 +61,9 @@ async function htmlFila(doc) {
   const data = doc.data();
   const img = cod(
     await urlStorage(doc.id));
-  const pasatiempo =
-    await buscaPasatiempo(
-      data.pasatiempoId);
+  const curso =
+    await buscaCurso(
+      data.cursoId);
   const roles =
     await buscaRoles(data.rolIds);
   const parámetros =
@@ -85,7 +85,7 @@ async function htmlFila(doc) {
           </strong>
           <span
               class="secundario">
-            ${pasatiempo}<br>
+            ${curso}<br>
             ${roles}
           </span>
         </span>
@@ -94,10 +94,10 @@ async function htmlFila(doc) {
 }
 
 async function
-  buscaPasatiempo(id) {
+  buscaCurso(id) {
   if (id) {
     const doc =
-      await daoPasatiempo.
+      await daoCurso.
         doc(id).
         get();
     if (doc.exists) {
@@ -106,7 +106,7 @@ async function
         `${cod(data.nombre)}`);
     }
   }
-  return "-- Sin Curso Registrado --";
+  return "-- Curso sin Registrar --";
 }
 
 async function buscaRoles(ids) {
@@ -125,7 +125,7 @@ async function buscaRoles(ids) {
     }
     return html;
   } else {
-    return "-- Sin Roles --";
+    return "-- Sin Rol --";
   }
 }
 

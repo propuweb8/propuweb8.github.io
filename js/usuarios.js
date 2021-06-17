@@ -11,43 +11,43 @@ import {
   muestraUsuarios
 } from "./navegacion.js";
 
-const SIN_PASATIEMPO = 
+const SIN_CURSO = 
   `<option value="">
-    -- Sin Curso cargado --
+    -- Sin Curso Registrado --
   </option>`;
 
 const firestore = getFirestore();
 const daoRol = firestore.
   collection("Rol");
-const daoPasatiempo = firestore.
-  collection("Pasatiempo");
+const daoCurso = firestore.
+  collection("Curso");
 const daoUsuario = firestore.
   collection("Usuario");
 
 export function
-  selectPasatiempos(select,
+  selectCursos(select,
     valor) {
   valor = valor || "";
-  daoPasatiempo.
+  daoCurso.
     orderBy("nombre").
     onSnapshot(
       snap => {
-        let html = SIN_PASATIEMPO;
+        let html = SIN_CURSO;
         snap.forEach(doc =>
-          html += htmlPasatiempo(
+          html += htmlCurso(
             doc, valor));
         select.innerHTML = html;
       },
       e => {
         muestraError(e);
-        selectPasatiempos(
+        selectCursos(
           select, valor);
       }
     );
 }
 
 function
-  htmlPasatiempo(doc, valor) {
+  htmlCurso(doc, valor) {
   const selected =
     doc.id === valor ?
       "selected" : "";
@@ -74,8 +74,8 @@ export function
       } else {
         html += 
           `<li class="vacio">
-              -- No hay roles
-              registrados. --
+              -- No hay rol
+              registrado. --
             </li>`;
       }
       elemento.innerHTML = html;

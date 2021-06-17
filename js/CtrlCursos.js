@@ -12,9 +12,9 @@ import {
 
 const lista = document.
   querySelector("#lista");
-const daoPasatiempo =
+const daoCurso =
   getFirestore().
-    collection("Pasatiempo");
+    collection("Curso");
 
 getAuth().
   onAuthStateChanged(
@@ -28,7 +28,7 @@ async function protege(usuario) {
 }
 
 function consulta() {
-  daoPasatiempo.
+  daoCurso.
     orderBy("nombre")
     .onSnapshot(
       htmlLista, errConsulta);
@@ -42,8 +42,8 @@ function htmlLista(snap) {
   } else {
     html += 
       `<li class="vacio">
-        -- No hay cursos
-        registrados. --
+        -- No hay registro
+        de Cursos. --
       </li>`;
   }
   lista.innerHTML = html;

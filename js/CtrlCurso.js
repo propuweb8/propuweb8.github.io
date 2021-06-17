@@ -7,15 +7,15 @@ import {
   muestraError
 } from "../lib/util.js";
 import {
-  muestraPasatiempos
+  muestraCursos
 } from "./navegacion.js";
 import {
   tieneRol
 } from "./seguridad.js";
 
-const daoPasatiempo =
+const daoCurso =
   getFirestore().
-    collection("Pasatiempo");
+    collection("Curso");
 const params =
   new URL(location.href).
     searchParams;
@@ -35,7 +35,7 @@ async function protege(usuario) {
 async function busca() {
   try {
     const doc =
-      await daoPasatiempo.
+      await daoCurso
         doc(id).
         get();
     if (doc.exists) {
@@ -53,7 +53,7 @@ async function busca() {
     }
   } catch (e) {
     muestraError(e);
-    muestraPasatiempos();
+    muestraCursos();
   }
 }
 
@@ -67,10 +67,10 @@ async function guarda(evt) {
     const modelo = {
       nombre
     };
-    await daoPasatiempo.
+    await daoCurso.
       doc(id).
       set(modelo);
-    muestraPasatiempos();
+    muestraCursos();
   } catch (e) {
     muestraError(e);
   }
@@ -80,10 +80,10 @@ async function elimina() {
   try {
     if (confirm("Confirmar la " +
       "eliminación")) {
-      await daoPasatiempo.
+      await daoCurso.
         doc(id).
         delete();
-      muestraPasatiempos();
+      muestraCursos();
     }
   } catch (e) {
     muestraError(e);

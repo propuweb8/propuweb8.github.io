@@ -11,7 +11,7 @@ import {
 import {
   checksRoles,
   guardaUsuario,
-  selectPasatiempos
+  selectCursos
 } from "./usuarios.js";
 
 const forma = document["forma"];
@@ -26,8 +26,8 @@ async function protege(usuario) {
     ["Administrador"])) {
     forma.addEventListener(
       "submit", guarda);
-    selectPasatiempos(
-      forma.pasatiempoId, "");
+    selectCursos(
+      forma.cursoId, "");
     checksRoles(listaRoles, []);
   }
 }

@@ -7,15 +7,15 @@ import {
   muestraError
 } from "../lib/util.js";
 import {
-  muestraPasatiempos
+  muestraCursos
 } from "./navegacion.js";
 import {
   tieneRol
 } from "./seguridad.js";
 
-const daoPasatiempo =
+const daoCurso =
   getFirestore().
-    collection("Pasatiempo");
+    collection("Curso");
 const forma = document["forma"];
 getAuth().onAuthStateChanged(
   protege, muestraError);
@@ -38,9 +38,9 @@ async function guarda(evt) {
     const modelo = {
       nombre
     };
-    await daoPasatiempo.
+    await daoCurso.
       add(modelo);
-    muestraPasatiempos();
+    muestraCursos();
   } catch (e) {
     muestraError(e);
   }

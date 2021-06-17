@@ -5,16 +5,15 @@
   <meta name="viewport"
     content="width=device-width,
        initial-scale=1.0">
-  <title>Pasatiempo</title>
+  <title>
+    Registro de Curso
+  </title>
   <script
-    src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js">
-    </script>
+    src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
   <script
-    src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js">
-    </script>
+    src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
   <script
-    src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js">
-    </script>
+    src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
   <script src="js/init.js">
   </script>
   <script type="module"
@@ -32,27 +31,25 @@
     <header>
       <h1>Cursos a Registrar</h1>
       <div class="herramientas">
-        <a href="pasatiempos.html">
+        <a
+          href="cursos.html">
           Cancelar</a>
-        <button>Guardar</button>
-        <button name="eliminar"
-          type="button">
-          Eliminar
+        <button type="submit">
+          Guardar
         </button>
       </div>
     </header>
     <p>
       <label>
-        Curso
+        Registro del Curso
         <input name="nombre"
-          type="text" required
-          value="Cargando…">
+          type="text" required>
       </label>
     </p>
     <mi-footer></mi-footer>
   </form>
   <script type="module"
-    src="js/CtrlPasatiempo.js">
+    src="js/CtrlCursoNuevo.js">
     </script>
 </body>
 </html>

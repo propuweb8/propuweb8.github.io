@@ -1,7 +1,7 @@
 class MiProgeso
   extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = /* html */
+    this.innerHTML = 
       `<progress max="100">
         Cargando…
       </progress>`;
