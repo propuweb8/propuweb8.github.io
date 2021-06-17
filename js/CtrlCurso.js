@@ -8,7 +8,7 @@ import {
 } from "../lib/util.js";
 import {
   muestraCursos
-} from "./navegacion.js";
+} from "./navegacion";
 import {
   tieneRol
 } from "./seguridad.js";
@@ -35,7 +35,7 @@ async function protege(usuario) {
 async function busca() {
   try {
     const doc =
-      await daoCurso
+      await daoCurso.
         doc(id).
         get();
     if (doc.exists) {
