@@ -1,5 +1,5 @@
 export function
-  muestraPasatiempos() {
+  muestraCursos() {
   location.href =
     "cursos.html";
 }
