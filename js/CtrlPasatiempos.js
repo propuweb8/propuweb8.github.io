@@ -10,7 +10,6 @@ import {
   tieneRol
 } from "./seguridad.js";
 
-/** @type {HTMLUListElement} */
 const lista = document.
   querySelector("#lista");
 const daoPasatiempo =
@@ -21,9 +20,6 @@ getAuth().
   onAuthStateChanged(
     protege, muestraError);
 
-/** @param {import(
-    "../lib/tiposFire.js").User}
-    usuario */
 async function protege(usuario) {
   if (tieneRol(usuario,
     ["Administrador"])) {
@@ -38,39 +34,28 @@ function consulta() {
       htmlLista, errConsulta);
 }
 
-/**
- * @param {import(
-    "../lib/tiposFire.js").
-    QuerySnapshot} snap */
 function htmlLista(snap) {
   let html = "";
   if (snap.size > 0) {
     snap.forEach(doc =>
       html += htmlFila(doc));
   } else {
-    html += /* html */
+    html += 
       `<li class="vacio">
-        -- No hay pasatiempos
+        -- No hay cursos
         registrados. --
       </li>`;
   }
   lista.innerHTML = html;
 }
 
-/**
- * @param {import(
-    "../lib/tiposFire.js").
-    DocumentSnapshot} doc */
 function htmlFila(doc) {
-  /**
-   * @type {import("./tipos.js").
-                  Pasatiempo} */
   const data = doc.data();
   const nombre = cod(data.nombre);
   const parámetros =
     new URLSearchParams();
   parámetros.append("id", doc.id);
-  return ( /* html */
+  return ( 
     `<li>
       <a class="fila" href=
   "pasatiempo.html?${parámetros}">
@@ -81,7 +66,6 @@ function htmlFila(doc) {
     </li>`);
 }
 
-/** @param {Error} e */
 function errConsulta(e) {
   muestraError(e);
   consulta();

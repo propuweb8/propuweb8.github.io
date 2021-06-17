@@ -10,11 +10,11 @@ import {
 
 class MiNav extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = /* html */
+    this.innerHTML =
       `<ul>
         <li>
           <a href="index.html">
-            Sesión</a>
+            Bievenid@</a>
         </li>
       </ul>`;
     this.ul =
@@ -25,38 +25,29 @@ class MiNav extends HTMLElement {
       muestraError);
   }
 
-  /**
-   * @param {import(
-      "../lib/tiposFire.js").User}
-      usu */
   async cambiaUsuario(usu) {
     if (usu && usu.email) {
       let html = "";
       const roles =
         await cargaRoles(
           usu.email);
-      /* Enlaces para solo
-       * para clientes. */
       if (roles.has("Cliente")) {
-        html += /* html */
+        html +=
           `<li>
             <a href=
-              "chat.html">Comentarios</a>
+              "chat.html">Sala Discusión</a>
           </li>`;
       }
-      /* Enlaces para solo
-       * administradores.
-       */
       if (roles.has(
         "Administrador")) {
-        html += /* html */
-          `<li>
+        html +=
+          `<li>s
             <a href=
 "pasatiempos.html">Cursos</a>
           </li>
           <li>
             <a href=
-      "usuarios.html">Usuarios Registrados</a>
+      "usuarios.html">Usuarios</a>
           </li>`;
       }
       this.ul.innerHTML += html;

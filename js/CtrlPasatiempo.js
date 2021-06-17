@@ -20,15 +20,11 @@ const params =
   new URL(location.href).
     searchParams;
 const id = params.get("id");
-/** @type {HTMLFormElement} */
 const forma = document["forma"];
 
 getAuth().onAuthStateChanged(
   protege, muestraError);
 
-/** @param {import(
-    "../lib/tiposFire.js").User}
-    usuario */
 async function protege(usuario) {
   if (tieneRol(usuario,
     ["Administrador"])) {
@@ -36,8 +32,6 @@ async function protege(usuario) {
   }
 }
 
-/** Busca y muestra los datos que
- * corresponden al id recibido. */
 async function busca() {
   try {
     const doc =
@@ -45,10 +39,6 @@ async function busca() {
         doc(id).
         get();
     if (doc.exists) {
-      /**
-       * @type {
-          import("./tipos.js").
-                  Pasatiempo} */
       const data = doc.data();
       forma.nombre.value =
         data.nombre || "";
@@ -67,7 +57,6 @@ async function busca() {
   }
 }
 
-/** @param {Event} evt */
 async function guarda(evt) {
   try {
     evt.preventDefault();
@@ -75,10 +64,6 @@ async function guarda(evt) {
       new FormData(forma);
     const nombre = getString(
       formData, "nombre").trim();
-    /**
-     * @type {
-        import("./tipos.js").
-                Pasatiempo} */
     const modelo = {
       nombre
     };

@@ -11,7 +11,7 @@ import {
   muestraUsuarios
 } from "./navegacion.js";
 
-const SIN_PASATIEMPO = /* html */
+const SIN_PASATIEMPO = 
   `<option value="">
     -- Sin Pasatiempo --
   </option>`;
@@ -24,10 +24,6 @@ const daoPasatiempo = firestore.
 const daoUsuario = firestore.
   collection("Usuario");
 
-/**
- * @param {
-    HTMLSelectElement} select
- * @param {string} valor */
 export function
   selectPasatiempos(select,
     valor) {
@@ -50,21 +46,13 @@ export function
     );
 }
 
-/**
- * @param {
-  import("../lib/tiposFire.js").
-  DocumentSnapshot} doc
- * @param {string} valor */
 function
   htmlPasatiempo(doc, valor) {
   const selected =
     doc.id === valor ?
       "selected" : "";
-  /**
-   * @type {import("./tipos.js").
-                  Pasatiempo} */
   const data = doc.data();
-  return (/* html */
+  return (
     `<option
         value="${cod(doc.id)}"
         ${selected}>
@@ -72,9 +60,6 @@ function
     </option>`);
 }
 
-/**
- * @param {HTMLElement} elemento
- * @param {string[]} valor */
 export function
   checksRoles(elemento, valor) {
   const set =
@@ -87,7 +72,7 @@ export function
           html +=
           checkRol(doc, set));
       } else {
-        html += /* html */
+        html += 
           `<li class="vacio">
               -- No hay roles
               registrados. --
@@ -103,21 +88,13 @@ export function
   );
 }
 
-/**
- * @param {
-    import("../lib/tiposFire.js").
-    DocumentSnapshot} doc
- * @param {Set<string>} set */
 export function
   checkRol(doc, set) {
-  /**
-   * @type {
-      import("./tipos.js").Rol} */
   const data = doc.data();
   const checked =
     set.has(doc.id) ?
       "checked" : "";
-  return (/* html */
+  return (
     `<li>
       <label class="fila">
         <input type="checkbox"
@@ -138,10 +115,6 @@ export function
     </li>`);
 }
 
-/**
- * @param {Event} evt
- * @param {FormData} formData
- * @param {string} id  */
 export async function
   guardaUsuario(evt, formData,
     id) {
