@@ -8,7 +8,7 @@ import {
 } from "../lib/util.js";
 import {
   muestraCursos
-} from "./navegacion.js";
+} from "./navegacion";
 import {
   tieneRol
 } from "./seguridad.js";
